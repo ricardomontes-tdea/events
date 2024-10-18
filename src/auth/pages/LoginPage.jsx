@@ -27,9 +27,9 @@ export const LoginPage = () => {
 
   return (
     <>
-      <div className="container">
-        <div className="row justify-content-center">
-          <div className="col-md-6">
+      <div className="container vh-100 d-flex justify-content-center align-items-center">
+        <div className="row w-100">
+          <div className="col-md-6 mx-auto">
             <div className="card">
               <div className="card-body">
                 <h5 className="card-title text-center">Inicio de Sesión</h5>
@@ -58,14 +58,16 @@ export const LoginPage = () => {
                       placeholder="Ingrese su contraseña"
                     />
                   </div>
-                  <button
-                    type="submit"
-                    className="btn btn-primary btn-block"
-                    onClick={onLogin}
-                  >
-                    Iniciar Sesión
-                  </button>
-                  <br />
+                   <br />
+                  <div className="form-group">
+                    <button
+                      type="submit"
+                      className="btn btn-primary btn-block"
+                      onClick={onLogin}
+                    >
+                      Iniciar Sesión
+                    </button> 
+                  </div>
                 </form>
               </div>
             </div>

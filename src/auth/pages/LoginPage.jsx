@@ -30,7 +30,7 @@ export const LoginPage = () => {
       <div className="container vh-100 d-flex justify-content-center align-items-center">
         <div className="row w-100">
           <div className="col-md-6 mx-auto">
-            <div className="card">
+            <div className="card animate__animated animate__jackInTheBox">
               <div className="card-body">
                 <h5 className="card-title text-center">Inicio de Sesión</h5>
                 <form>

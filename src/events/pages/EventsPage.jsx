@@ -7,7 +7,7 @@ export const EventsPage = () => {
       <div className="row">
         {events.map((event) => (
           <div className="col-md-6 col-lg-4 mb-4" key={event.id}>
-            <div className="card">
+            <div className="card animate__animated animate__fadeInUp">
               <img
                 src={event.imageUrl}
                 className="card-img-top"

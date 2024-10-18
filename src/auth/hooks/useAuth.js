@@ -20,7 +20,7 @@ export const useAuth = ( dispatch ) => {
   }
 
   const logOutUser = () => {
-    localStorage.deleteItem("user");
+    localStorage.clear();
 
     const action = {
       type: authTypes.logOut,

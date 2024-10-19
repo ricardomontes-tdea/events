@@ -5,40 +5,29 @@ import { Link, useNavigate } from "react-router-dom";
 
 const initForm = {
   email: "",
+  displayName: "",
   password: "",
 };
 
-export const LoginPage = () => {
+export const RegisterPage = () => {
   const navigate = useNavigate();
 
   const {
     authState: { errorMessage },
-    logInUser,
-    logInWithGoogle
+    signUpUser,
   } = useContext(AuthContext);
 
-  const { email, password, onInputChange } = useForm(initForm);
+  const { email, password, displayName, onInputChange } = useForm(initForm);
 
-  const onLogin = async (event) => {
+  const onRegister = async (event) => {
     event.preventDefault();
 
-    const isValidLogin = await logInUser(email, password);
+    const isValidLogin = await signUpUser(email, password, displayName);
 
     if (isValidLogin) {
       navigate("/events", { replace: true });
     }
   };
-
-  const onLoginWithGoogle = async (event) => {
-    event.preventDefault();
-
-    const isValidLogin = await logInWithGoogle();
-
-    if (isValidLogin) {
-      navigate("/events", { replace: true });
-    }
-
-  }
 
   return (
     <>
@@ -47,7 +36,9 @@ export const LoginPage = () => {
           <div className="col-md-6 mx-auto">
             <div className="card animate__animated animate__jackInTheBox">
               <div className="card-body">
-                <h5 className="card-title text-center">Inicio de Sesión</h5>
+                <h5 className="card-title text-center">
+                  Registrar usuario nuevo
+                </h5>
                 <form>
                   <div className="form-group">
                     <label htmlFor="email">Correo Electrónico</label>
@@ -59,6 +50,18 @@ export const LoginPage = () => {
                       value={email}
                       onChange={onInputChange}
                       placeholder="Ingrese su correo electrónico"
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="email">Nombre Completo</label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      id="displayName"
+                      name="displayName"
+                      value={displayName}
+                      onChange={onInputChange}
+                      placeholder="LLene con un nombre completo"
                     />
                   </div>
                   <div className="form-group">
@@ -79,31 +82,22 @@ export const LoginPage = () => {
                       {errorMessage}
                     </div>
                   )}
-              
+                  <br />
+                  <br />
+
                   <div className="form-group">
                     <button
                       type="submit"
                       className="btn btn-primary btn-block"
-                      onClick={onLogin}
+                      onClick={onRegister}
                     >
-                      Iniciar Sesión
+                      Registrar
                     </button>
                   </div>
-
                   <div className="form-group">
-                    <button
-                      type="submit"
-                      className="btn btn-success btn-block"
-                      onClick={onLoginWithGoogle}
-                    >
-                      Iniciar Sesión con Google
-                    </button>
-                  </div>
-
-                  <div className="form-group">
-                    <Link to={"/register"} className="">
+                    <Link to={"/login"} className="">
                       {" "}
-                      Aun no tienes cuenta? registrate aqui.{" "}
+                      Ya tienes cuenta? Logeate aqui.{" "}
                     </Link>
                   </div>
                 </form>

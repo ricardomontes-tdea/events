@@ -37,7 +37,7 @@ export const Navbar = () => {
             <li className="nav-item">
               <a className="nav-link" href="/">
                 <i className="fas fa-user"> </i>
-                {user?.email}
+                {user?.displayName}
               </a>
             </li>
             <li className="nav-item">
